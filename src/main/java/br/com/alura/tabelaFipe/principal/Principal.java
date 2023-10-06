@@ -28,8 +28,9 @@ public class Principal {
         ArrayList<DadosMarca> marcas = new ArrayList<>(Arrays.asList(jsonmarcas));
         marcas.forEach(System.out::println);
         System.out.println("Digite o código da marca que está buscando: ");
-        Integer CodigoMarca = sc.nextInt();
+        Integer codigoMarca = sc.nextInt();
         sc.nextLine();
+        json = consumoApi.obterDados(chave + tipoVeiculo + "/marcas/" + codigoMarca);
 
 
     }
