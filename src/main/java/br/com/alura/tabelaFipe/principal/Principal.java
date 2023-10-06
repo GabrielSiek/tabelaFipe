@@ -17,12 +17,13 @@ public class Principal {
     ConsumoApi consumoApi = new ConsumoApi();
     ConverteDados converteDados = new ConverteDados();
     String chave = "https://parallelum.com.br/fipe/api/v1/";
+    String json;
 
     public void exibeMenu() {
         System.out.print("Digite o tipo de veículo que está buscando: ");
         String tipoVeiculo = sc.nextLine().toLowerCase();
 
-        String json = consumoApi.obterDados(chave + tipoVeiculo + "/marcas");
+        json = consumoApi.obterDados(chave + tipoVeiculo + "/marcas");
         DadosMarca[] jsonmarcas = converteDados.converteDados(json, DadosMarca[].class);
         ArrayList<DadosMarca> marcas = new ArrayList<>(Arrays.asList(jsonmarcas));
         marcas.forEach(System.out::println);
